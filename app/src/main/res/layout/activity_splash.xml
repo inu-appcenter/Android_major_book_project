@@ -34,7 +34,6 @@
             android:fontFamily="@font/pretendard_bold"
             android:includeFontPadding="false"
             android:text="어플명"
-
             android:textColor="@color/white"
             android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
