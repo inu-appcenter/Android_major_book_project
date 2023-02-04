@@ -30,11 +30,6 @@ android {
         viewBinding = true
     }
 
-    // DataBinding
-    dataBinding {
-        enabled = true
-    }
-
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -60,4 +55,5 @@ dependencies {
 
     // material component
     implementation 'com.google.android.material:material:<1.8.0>'
+    implementation 'com.github.mancj:MaterialSearchBar:0.8.5'
 }
