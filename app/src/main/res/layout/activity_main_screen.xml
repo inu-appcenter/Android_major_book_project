@@ -43,6 +43,17 @@
                     android:textSize="14sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <TextView
+                android:id="@+id/text_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="150dp"
+                android:layout_marginTop="204dp"
+                android:text="검색어를 입력하세요"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <androidx.appcompat.widget.SearchView
                 android:id="@+id/searchView"
                 android:layout_width="220dp"
@@ -53,13 +64,13 @@
                 android:animateLayoutChanges="true"
                 android:background="@drawable/item_book_layout"
                 android:contextClickable="true"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
                 android:layoutDirection="rtl"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                app:iconifiedByDefault="false"
+                app:iconifiedByDefault="true"
                 app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
                 app:layout_constraintTop_toTopOf="parent"
                 app:queryBackground="@android:color/transparent"
-                app:queryHint="검색어를 입력해주세요"
                 app:searchIcon="@drawable/ic_search"
                 app:theme="@style/AppSearchView">
 
