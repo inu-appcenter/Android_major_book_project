@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="84dp"
+    android:background="@drawable/item_book_layout">
+
+    <TextView
+        android:id="@+id/lecture"
+        android:layout_width="200dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="10dp"
+        android:lineSpacingExtra="-3sp"
+        android:maxLines="1"
+        android:text="UIUX 디자인"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/professor"
+        android:layout_width="200dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="4dp"
+        android:lineSpacingExtra="-2sp"
+        android:maxLines="1"
+        android:text="이운형"
+        android:textColor="#686868"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/lecture"
+        app:layout_constraintTop_toBottomOf="@+id/lecture" />
+
+    <TextView
+        android:id="@+id/major"
+        android:layout_width="200dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="6dp"
+        android:lineSpacingExtra="-2sp"
+        android:maxLines="1"
+        android:text="전공선택 디자인 학부"
+        android:textColor="#686868"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/lecture"
+        app:layout_constraintTop_toBottomOf="@+id/professor" />
+</androidx.constraintlayout.widget.ConstraintLayout>
