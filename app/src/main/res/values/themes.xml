@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.MajorBookService" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.MajorBookService" parent="Theme.AppCompat.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -16,13 +16,12 @@
     </style>
 
     <!-- 메인화면 검색어를 입력하세요 부분의 queryhint의 textSize-->
-    <style name="AppSearchView" parent="Widget.AppCompat.SearchView" >
+    <style name="AppSearchView" parent="Widget.AppCompat.SearchView">
         <item name="android:textSize">12sp</item>
     </style>
 
     <!-- 메인화면 교수명 spinner -->
-    <style name="CustomDropDownTilStyle"
-        parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+    <style name="CustomDropDownTilStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="boxCornerRadiusBottomEnd">5dp</item>
@@ -40,6 +39,20 @@
     <style name="SpinnerTheme" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
         <item name="android:dropDownListViewStyle">@style/SpinnerDivideStyle</item>
     </style>
+
+    <!-- spinner dropdown selector -->
+    <style name="SpinnerwithNoArrow" parent="@android:style/Widget.Spinner">
+        <item name="android:dropDownSelector">@drawable/ic_chevron_down</item>
+    </style>
+
+    <style name="Theme.MajorBookService.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.MajorBookService.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.MajorBookService.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 
 </resources>

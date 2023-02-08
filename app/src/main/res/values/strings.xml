@@ -1,3 +1,43 @@
 <resources>
     <string name="app_name">Major Book Service</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="spinner_main_screen">
+        <item>교수명</item>
+        <item>과목명</item>
+        <item>학과명</item>
+    </string-array>
+
+    <string-array name="spinner_account_screen_school">
+        <item>인문대학</item>
+        <item>자연과학대학</item>
+        <item>사회과학대학</item>
+        <item>글로벌정경대학</item>
+        <item>공과대학</item>
+        <item>정보기술대학</item>
+        <item>경영대학</item>
+        <item>예술체육대학</item>
+        <item>사범대학</item>
+        <item>도시과학대학</item>
+        <item>생명과학기술대학</item>
+        <item>동북아국제통상학부</item>
+        <item>법학부</item>
+    </string-array>
+
+    <string-array name="spinner_account_screen_school_major">
+        <item>인문대학</item>
+        <item>자연과학대학</item>
+        <item>사회과학대학</item>
+        <item>글로벌정경대학</item>
+        <item>공과대학</item>
+        <item>정보기술대학</item>
+        <item>경영대학</item>
+        <item>예술체육대학</item>
+        <item>사범대학</item>
+        <item>도시과학대학</item>
+        <item>생명과학기술대학</item>
+        <item>동북아국제통상학부</item>
+        <item>법학부</item>
+    </string-array>
 </resources>
