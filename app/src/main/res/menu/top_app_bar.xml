@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/favorite"
+        android:contentDescription="뒤로가기"
+        android:icon="@drawable/baseline_arrow_back_ios_new_24"
+        android:title="뒤로 가기"
+        app:showAsAction="ifRoom" />
+
+
+
+</menu>

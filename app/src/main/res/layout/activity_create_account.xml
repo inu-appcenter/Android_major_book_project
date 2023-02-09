@@ -2,31 +2,27 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="360dp"
-    android:layout_height="740dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     tools:context=".CreateAccountActivity">
 
-
     <TextView
+        style="@style/signInText"
         android:id="@+id/text_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="100dp"
         android:text="이름"
-        android:textColor="@color/black"
-        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
+        style="@style/signInEditText"
         android:id="@+id/editText_inputName"
         android:layout_width="match_parent"
         android:layout_height="46dp"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="527dp"
         android:background="@drawable/bg_gray3_5dp"
         android:ems="10"
         android:hint="이름을 입력하세요"
@@ -34,17 +30,16 @@
         android:letterSpacing="-0.02"
         android:paddingStart="16dp"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_name"
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
+        style="@style/signInEditText"
         android:id="@+id/editText_inputId"
         android:layout_width="match_parent"
         android:layout_height="46dp"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="15dp"
         android:background="@drawable/bg_gray3_5dp"
@@ -53,17 +48,16 @@
         android:inputType="textPersonName"
         android:letterSpacing="-0.02"
         android:paddingStart="16dp"
-        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/editText_inputName"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/text_name"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <EditText
+        style="@style/signInEditText"
         android:id="@+id/editText_inputPassword"
         android:layout_width="match_parent"
         android:layout_height="46dp"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/bg_gray3_5dp"
@@ -79,32 +73,30 @@
 
     <TextView
         android:id="@+id/textView"
+        style="@style/signInText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="학과"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/text_name"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText_inputName" />
 
     <com.skydoves.powerspinner.PowerSpinnerView
+        style="@style/signInEditText"
         android:id="@+id/spinnerView"
-        android:layout_width="161dp"
+        android:layout_width="0dp"
         android:layout_height="46dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="6dp"
         android:background="@drawable/spinner_main_background_closed"
         android:foreground="?attr/selectableItemBackground"
         android:gravity="center_vertical"
         android:hint="단과대"
         android:paddingStart="12dp"
         android:paddingEnd="15dp"
-        android:textColor="@color/gray4"
         android:textColorHint="@color/gray4"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toStartOf="@+id/spinnerView2"
+        app:layout_constraintEnd_toStartOf="@id/spinnerView2"
+        app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:spinner_arrow_animate="true"
@@ -120,12 +112,15 @@
         tools:ignore="HardcodedText,UnusedAttribute" />
 
     <com.skydoves.powerspinner.PowerSpinnerView
+        android:fontFamily="@font/pretendard_light"
         android:id="@+id/spinnerView2"
-        android:layout_width="161dp"
+        android:layout_width="0dp"
+        app:layout_constraintHorizontal_weight="1"
         android:layout_height="46dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:background="@drawable/gray2_5dp_bg"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/line_gray2_5dp"
         android:foreground="?attr/selectableItemBackground"
         android:gravity="center_vertical"
         android:hint="학과"
@@ -133,8 +128,9 @@
         android:paddingEnd="15dp"
         android:textColor="@color/gray4"
         android:textColorHint="@color/gray2"
-        android:textSize="14sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/spinnerView"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:spinner_arrow_animate="true"
         app:spinner_arrow_gravity="end"
@@ -151,27 +147,26 @@
 
     <TextView
         android:id="@+id/textView6"
+        style="@style/signInText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="아이디(학번)"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/text_name"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinnerView" />
 
     <TextView
         android:id="@+id/textView7"
+        style="@style/signInText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="비밀번호를 입력하세요"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/text_name"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText_inputId" />
 
     <Button
+        style="@style/signInText"
         android:id="@+id/btn_authenticate"
         android:layout_width="137dp"
         android:layout_height="38dp"

@@ -6,136 +6,134 @@
     android:background="@color/background"
     tools:context=".LogInActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="360dp"
-        android:layout_height="720dp"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="127dp"
+        android:src="@drawable/inu_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/idInputEditText"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/line_gray2_5dp"
+        android:fontFamily="@font/pretendard_regular"
+        android:hint="이메일 주소 또는 아이디"
+        android:includeFontPadding="false"
+        android:paddingLeft="16dp"
+        android:textColorHint="@color/gray3"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <EditText
+        android:id="@+id/pwInputEditText"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/line_gray2_5dp"
+        android:fontFamily="@font/pretendard_regular"
+        android:hint="비밀번호"
+        android:includeFontPadding="false"
+        android:paddingLeft="16dp"
+        android:textColorHint="@color/gray3"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idInputEditText" />
+
+    <CheckBox
+        android:id="@+id/checkbox_remember_me"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:buttonTint="@color/gray3"
+        android:fontFamily="@font/pretendard_light"
+        android:text="자동로그인"
+
+        android:textColor="@color/gray4"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/pwInputEditText"
+        app:layout_constraintTop_toBottomOf="@+id/pwInputEditText" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/pretendard_light"
+        android:text="아이디/비밀번호 찾기"
+        android:textColor="@color/gray4"
+        android:textSize="12sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/checkbox_remember_me"
+        app:layout_constraintEnd_toEndOf="@+id/pwInputEditText" />
+
+    <TextView
+        android:id="@+id/logInBtn"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="141dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/bg_iris_100_5dp"
+        android:fontFamily="@font/pretendard_medium"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="로그인"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pwInputEditText" />
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="40dp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="180dp"
-            android:layout_height="180dp"
-            android:layout_marginStart="90dp"
-            android:layout_marginTop="127dp"
-            android:layout_marginEnd="90dp"
-            android:src="@drawable/inu_logo"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/idInputEditText"
-            android:layout_width="match_parent"
-            android:layout_height="46dp"
-            android:layout_marginTop="32dp"
-            android:background="@drawable/gray2_5dp_bg"
-            android:fontFamily="@font/pretendard_regular"
-            android:hint="이메일 주소 또는 아이디"
-            android:includeFontPadding="false"
-            android:paddingLeft="16dp"
-            android:textColorHint="@color/gray3"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-        <EditText
-            android:id="@+id/pwInputEditText"
-            android:layout_width="match_parent"
-            android:layout_height="46dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/gray2_5dp_bg"
-            android:fontFamily="@font/pretendard_regular"
-            android:hint="비밀번호"
-            android:includeFontPadding="false"
-            android:paddingLeft="16dp"
-            android:textColorHint="@color/gray3"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/idInputEditText" />
-
-        <CheckBox
-            android:id="@+id/checkbox_remember_me"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:buttonTint="@color/gray3"
-            android:fontFamily="@font/pretendard_light"
-            android:text="자동로그인"
-            android:textColor="@color/gray4"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="@+id/pwInputEditText"
-            app:layout_constraintTop_toBottomOf="@+id/pwInputEditText" />
+        app:layout_constraintTop_toBottomOf="@id/logInBtn">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="155dp"
-            android:fontFamily="@font/pretendard_light"
-            android:text="아이디/비밀번호 찾기"
-            android:textColor="@color/gray4"
-            android:textSize="12sp"
-            app:layout_constraintBaseline_toBaselineOf="@id/checkbox_remember_me"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <TextView
-            android:id="@+id/logInBtn"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="46dp"
-            android:layout_marginTop="141dp"
-            android:background="@drawable/iris_100_5dp_bg"
-            android:fontFamily="@font/pretendard_medium"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/line_gray4_5dp"
             android:gravity="center"
-            android:includeFontPadding="false"
-            android:text="로그인"
-            android:textColor="@color/white"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pwInputEditText" />
+            android:paddingStart="31dp"
+            android:paddingEnd="31dp"
+            android:text="학번으로 회원가입"
+            android:textColor="@color/gray4"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_weight="1"
+            android:background="@drawable/line_gray4_5dp"
+            android:gravity="center"
+            android:paddingStart="31dp"
+            android:paddingEnd="31dp"
+            android:text="비회원 사용"
+            android:textColor="@color/gray4"
+            android:textSize="14sp" />
 
 
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="40dp"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/logInBtn">
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="46dp"
-                android:layout_marginEnd="8dp"
-                android:layout_weight="1"
-                android:background="@drawable/gray4_5dp_bg"
-                android:gravity="center"
-                android:paddingStart="31dp"
-                android:paddingEnd="31dp"
-                android:text="학번으로 회원가입"
-                android:textColor="@color/gray4"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="46dp"
-                android:layout_weight="1"
-                android:background="@drawable/gray4_5dp_bg"
-                android:gravity="center"
-                android:paddingStart="31dp"
-                android:paddingEnd="31dp"
-                android:text="비회원 사용"
-                android:textColor="@color/gray4"
-                android:textSize="14sp" />
-
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

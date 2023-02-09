@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MajorBookActivity">
+
+
+    <com.google.android.material.appbar.MaterialToolbar
+        style="@style/Widget.App.ActionMode"
+        android:id="@+id/topAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="17dp"
+        app:titleTextColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:menu="@menu/contextual_action_bar"
+        app:navigationIcon="@drawable/baseline_arrow_back_ios_new_24"
+        app:title="융합디자인론/한혜진"
+        app:titleCentered="true"
+        app:titleTextAppearance="@style/TextAppearance.MyApp.Headline1" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/line_iris100_2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topAppBar">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="18dp"
+            android:fontFamily="@font/pretendard_medium"
+            android:text="한혜진"
+            android:textColor="@color/gray4"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/subject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/pretendard_semi_bold"
+            android:text="융합디자인론"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/name" />
+
+        <TextView
+            android:id="@+id/major"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="18dp"
+            android:fontFamily="@font/pretendard_regular"
+            android:text="전공선택 디자인학부"
+            android:textColor="@color/gray4"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/subject" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/pageInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/pretendard_medium"
+        android:text="주교재 및 참고서적"
+        android:textColor="@color/gray4"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/constraintLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
+
+
+    <TextView
+        android:id="@+id/mainBook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/pretendard_regular"
+        android:text="참고서적"
+        android:textColor="@color/gray4"
+        android:textSize="12sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/pageInfo"
+        app:layout_constraintEnd_toEndOf="@+id/constraintLayout2" />
+
+
+    <TextView
+        android:id="@+id/subBook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/pretendard_regular"
+        android:text="주교재"
+        android:textColor="@color/gray4"
+        android:textSize="12sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/pageInfo"
+        app:layout_constraintEnd_toStartOf="@+id/mainBook" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/line_gray4_5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/subBook" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
