@@ -34,6 +34,7 @@
                 android:textColorHint="@color/black"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="@+id/constraintLayout"
+
                 app:layout_constraintTop_toTopOf="parent"
                 app:spinner_arrow_animate="true"
                 app:spinner_arrow_gravity="end"
@@ -82,17 +83,21 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
                 android:layout_width="328dp"
+
                 android:layout_height="match_parent"
                 android:layout_marginTop="249dp"
+
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="60dp"
                 android:background="@drawable/item_book_layout"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/constraintLayout"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0"
+
                 tools:listitem="@layout/item_book">
 
             </androidx.recyclerview.widget.RecyclerView>
