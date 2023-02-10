@@ -6,7 +6,6 @@
     android:layout_height="740dp"
     tools:context=".CreateAccountActivity">
 
-
     <TextView
         android:id="@+id/text_name"
         android:layout_width="wrap_content"

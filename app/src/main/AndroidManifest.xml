@@ -16,10 +16,10 @@
             android:theme="@style/Theme.MajorBookService.NoActionBar" />
         <activity android:name=".LogInActivity"/>
         <activity android:name=".MainActivity"/>
-        <activity android:name=".MainScreenActivity"/>
+        <!--<activity android:name=".MainScreenActivity"/>-->
 
         <activity
-            android:name=".SplashActivity"
+            android:name=".MainScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

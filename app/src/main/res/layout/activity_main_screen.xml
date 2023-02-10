@@ -34,7 +34,6 @@
                 android:textColorHint="@color/black"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="@+id/constraintLayout"
-
                 app:layout_constraintTop_toTopOf="parent"
                 app:spinner_arrow_animate="true"
                 app:spinner_arrow_gravity="end"
