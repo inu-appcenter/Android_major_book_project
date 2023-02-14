@@ -25,8 +25,10 @@ class MajorBookActivity : AppCompatActivity() {
 //        binding.toolbar.title = "융합디자인론/한혜진"
 
         val toolbar = findViewById(R.id.topAppBar) as androidx.appcompat.widget.Toolbar
-        setSupportActionBar(toolbar)
-        toolbar?.navigationIcon = ContextCompat.getDrawable(this,R.drawable.baseline_arrow_back_ios_new_24)
+        setSupportActionBar(toolbar)    //toolbar를 갖고와 activity의 앱바로 설정
+//        toolbar?.navigationIcon = ContextCompat.getDrawable(this,R.drawable.baseline_arrow_back_ios_new_24) //style이 지정된 drawable을 얻는 법
+
+        /**back arrow click event*/
         toolbar?.setNavigationOnClickListener {
             Toast.makeText(applicationContext,"Navigation icon was clicked",Toast.LENGTH_SHORT).show()
             val intent= Intent( this,MainScreenActivity::class.java)

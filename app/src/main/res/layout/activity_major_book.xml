@@ -8,16 +8,13 @@
 
 
     <com.google.android.material.appbar.MaterialToolbar
-        style="@style/Widget.App.ActionMode"
         android:id="@+id/topAppBar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="17dp"
-        app:titleTextColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:menu="@menu/contextual_action_bar"
         app:navigationIcon="@drawable/baseline_arrow_back_ios_new_24"
         app:title="융합디자인론/한혜진"
         app:titleCentered="true"
