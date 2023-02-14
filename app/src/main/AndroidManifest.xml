@@ -12,17 +12,20 @@
         android:theme="@style/Theme.MajorBookService"
         tools:targetApi="31">
         <activity
+            android:name=".WelcomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainScreenActivity"
+            android:exported="false" />
+        <activity
             android:name=".RecyclerViewActivity"
             android:exported="false" />
         <activity
             android:name=".SplashActivity"
-            android:exported="false" />
-        <activity
-            android:name=".CreateAccountActivity"
             android:theme="@style/Theme.MajorBookService.NoActionBar" />
         <activity android:name=".LogInActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".MainScreenActivity" />
+        <activity android:name=".CreateAccountActivity" />
         <activity
             android:name=".MajorBookActivity"
             android:exported="true">
