@@ -1,9 +1,12 @@
 package com.example.majorbookservice
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -30,7 +33,8 @@ class CreateAccountActivity : AppCompatActivity() {
         binding.spinnerView.apply {
             setOnSpinnerItemSelectedListener<String> { _, _, _, item ->
                 binding.spinnerView.setBackgroundResource(R.drawable.spinner_main_background_closed)
-                binding.spinnerView.setPaddingRelative(12, 0, 15, 0)            }
+                binding.spinnerView.setPaddingRelative(12, 0, 15, 0)
+            }
         }
 
         /** 학과 Spinner 부분 아이템 리스트 열렸을 때 테두리 값 변경*/
@@ -48,5 +52,16 @@ class CreateAccountActivity : AppCompatActivity() {
             }
         }
 
+        //toolbar
+        val toolbar = findViewById(R.id.topAppBar) as androidx.appcompat.widget.Toolbar
+        setSupportActionBar(toolbar)
+        toolbar?.navigationIcon =
+            ContextCompat.getDrawable(this, R.drawable.baseline_arrow_back_ios_new_24)
+        toolbar?.setNavigationOnClickListener {
+            Toast.makeText(applicationContext, "Navigation icon was clicked", Toast.LENGTH_SHORT)
+                .show()
+            val intent = Intent(this, MainScreenActivity::class.java)
+            startActivity(intent)
         }
     }
+}
