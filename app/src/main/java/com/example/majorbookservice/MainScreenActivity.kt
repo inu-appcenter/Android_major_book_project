@@ -37,6 +37,10 @@ class MainScreenActivity : AppCompatActivity() {
             }
         }
 
+        binding.searchView.setOnFocusChangeListener { v, hasFocus ->
+            binding.searchView.setBackgroundResource(R.drawable.bg_gray1_5dp_line)
+        }
+
         binding.searchView.addTextChangedListener(object : TextWatcher {
 
             override fun afterTextChanged(s: Editable) {
@@ -56,8 +60,10 @@ class MainScreenActivity : AppCompatActivity() {
             ) {
                 if (s.toString().trim().isNotEmpty()) {
                     binding.searchViewIcon.setImageResource(R.drawable.img)
+
                 } else {
                     binding.searchViewIcon.setImageResource(R.drawable.ic_search_figma)
+
                 }
             }
         })
@@ -158,6 +164,7 @@ class MainScreenActivity : AppCompatActivity() {
                         getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
                     imm.hideSoftInputFromWindow(v.getWindowToken(), 0)
                     binding.searchViewIcon.setImageResource(R.drawable.ic_search_figma)
+                    binding.searchView.setBackgroundResource(R.drawable.bg_gray1_5dp)
 
                 }
             }
