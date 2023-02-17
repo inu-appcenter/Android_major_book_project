@@ -114,8 +114,6 @@
             android:layout_weight="1"
             android:background="@drawable/line_gray4_5dp"
             android:gravity="center"
-            android:paddingStart="31dp"
-            android:paddingEnd="31dp"
             android:text="학번으로 회원가입"
             android:textColor="@color/gray4"
             android:textSize="14sp" />
@@ -126,8 +124,6 @@
             android:layout_weight="1"
             android:background="@drawable/line_gray4_5dp"
             android:gravity="center"
-            android:paddingStart="31dp"
-            android:paddingEnd="31dp"
             android:text="비회원 사용"
             android:textColor="@color/gray4"
             android:textSize="14sp" />

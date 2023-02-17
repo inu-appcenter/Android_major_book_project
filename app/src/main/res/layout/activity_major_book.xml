@@ -40,6 +40,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="18dp"
             android:fontFamily="@font/pretendard_medium"
+            android:letterSpacing="-0.03"
             android:text="한혜진"
             android:textColor="@color/gray4"
             android:textSize="12sp"
@@ -53,6 +54,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
             android:fontFamily="@font/pretendard_semi_bold"
+            android:letterSpacing="-0.02"
             android:text="융합디자인론"
             android:textColor="@color/black"
             android:textSize="16dp"
@@ -67,6 +69,7 @@
             android:layout_marginTop="14dp"
             android:layout_marginBottom="18dp"
             android:fontFamily="@font/pretendard_regular"
+            android:letterSpacing="-0.03"
             android:text="전공선택 디자인학부"
             android:textColor="@color/gray4"
             android:textSize="12sp"
@@ -83,6 +86,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:fontFamily="@font/pretendard_medium"
+        android:letterSpacing="-0.02"
         android:text="주교재 및 참고서적"
         android:textColor="@color/gray4"
         android:textSize="14sp"
@@ -95,6 +99,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/pretendard_regular"
+        android:letterSpacing="-0.03"
         android:text="참고서적"
         android:textColor="@color/gray4"
         android:textSize="12sp"
@@ -108,6 +113,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/pretendard_regular"
+        android:letterSpacing="-0.03"
         android:text="주교재"
         android:textColor="@color/gray4"
         android:textSize="12sp"
@@ -123,6 +129,8 @@
         android:background="@drawable/line_gray4_5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/subBook" />
+        app:layout_constraintTop_toBottomOf="@+id/subBook"
+        tools:listitem="@layout/item_major_book"
+        tools:itemCount="1"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
