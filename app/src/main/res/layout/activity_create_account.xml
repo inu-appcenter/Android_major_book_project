@@ -6,6 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".CreateAccountActivity">
 
+    <com.google.android.material.appbar.MaterialToolbar
+        style="@style/Widget.App.ActionMode"
+        android:id="@+id/topAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="17dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:menu="@menu/contextual_action_bar"
+        app:navigationIcon="@drawable/baseline_arrow_back_ios_new_24"
+        app:title="회원가입"
+        app:titleCentered="true"
+        app:titleTextAppearance="@style/TextAppearance.MyApp.Headline1" />
+
+
     <TextView
         style="@style/signInText"
         android:id="@+id/text_name"
@@ -170,6 +186,7 @@
         android:id="@+id/btn_authenticate"
         android:layout_width="137dp"
         android:layout_height="38dp"
+        android:fontFamily="@font/pretendard_medium"
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/iris_80_5dp_bg"
@@ -186,6 +203,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:letterSpacing="-0.03"
+        android:fontFamily="@font/pretendard_light"
         android:text="회원가입시 수집한 개인정보는 재학생 인증에만 사용됩니다."
         android:textColor="@color/gray4"
         android:textSize="12sp"
@@ -202,6 +220,8 @@
         android:background="@drawable/bg_gray3_5dp"
         android:backgroundTint="@color/gray3"
         android:text="가입완료"
+        android:textSize="14sp"
+        android:fontFamily="@font/pretendard_medium"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
