@@ -1,45 +1,140 @@
 package com.example.majorbookservice
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.graphics.Rect
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
 import android.widget.EditText
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.getSystemService
+import androidx.core.view.isVisible
+import androidx.core.widget.doAfterTextChanged
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.majorbookservice.Data.DTO.MajorBooks
+import com.example.majorbookservice.Data.DTO.SubjectDto
+import com.example.majorbookservice.Data.DTO.SubjectResponse
 import com.example.majorbookservice.UI.adapter.Adapter
+import com.example.majorbookservice.UI.adapter.ToDoAdapter
 import com.example.majorbookservice.databinding.ActivityMainScreenBinding
+import com.example.majorbookservice.databinding.ItemBookBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 
 class MainScreenActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainScreenBinding
     val mDatas = mutableListOf<MajorBooks>()
+    private var nameText = ""
+    private var professorText = ""
+    private var departmentText = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main_screen)
         setupAutoCompleteView()
 
+        //1. retrofit 만들기
+        val retrofit = Retrofit.Builder()
+            .baseUrl("https://book-service.inuappcenter.kr/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        //2. retrofit 서비스 등록하기
+        val retrofitService = retrofit.create(RetrofitService::class.java)
+
+        val searchList = mutableListOf<SubjectDto>()
+
         binding.searchViewIcon.setOnClickListener {
+            searchList.clear()
+            nameText = ""
+            professorText = ""
+            departmentText = ""
+
+            when(binding.spinnerView.text.toString()){
+                "교수명" -> professorText = binding.searchView.text.toString()
+                "과목명" -> nameText= binding.searchView.text.toString()
+                "학과명" -> departmentText = binding.searchView.text.toString()
+                else -> professorText = binding.searchView.text.toString()
+            }
 
             if(binding.searchView.isFocused){
                 binding.searchView.text.clear()
             }else{
                 Toast.makeText(applicationContext,"검색중...", Toast.LENGTH_SHORT).show()
+                retrofitService.subjectInquiry(professorText,departmentText,nameText).enqueue(object : Callback<SubjectResponse> {
+
+                    override fun onResponse(
+                        call: Call<SubjectResponse>,
+                        response: Response<SubjectResponse>
+                    ) {
+                        //성공한 경우
+                        if (response.isSuccessful) {
+                            val searchResponse = response.body()!!
+                            Toast.makeText(applicationContext,"검색 성공~!", Toast.LENGTH_SHORT).show()
+                            Log.d("retrofit", searchResponse.toString())
+
+
+
+                            //val todoList = response.body()!!
+                            Log.d("retrofit", searchResponse.size.toString())
+
+                            searchResponse.forEach{
+                                //Log.d("retrofit",it.contents)
+                                searchList.add(SubjectDto(it.department,it.id,it.name,it.professor,it.subjectType))
+                            }
+                        }
+
+                        if(searchList.size == 0){
+                            binding.noResults.isVisible = true
+                        }else{
+                            binding.noResults.isVisible = false
+                        }
+                        searchList.forEach {
+                            //Log.d("retrofit",it.contents)
+                        }
+
+                        binding.recyclerView.layoutManager =
+                            LinearLayoutManager(this@MainScreenActivity, RecyclerView.VERTICAL, false)
+                        binding.recyclerView.adapter = ToDoAdapter(ItemBookBinding.inflate(layoutInflater), searchList)
+                    }
+
+                    override fun onFailure(call: Call<SubjectResponse>, t: Throwable) {
+
+                    }
+                })
             }
         }
 
         binding.searchView.setOnFocusChangeListener { v, hasFocus ->
             binding.searchView.setBackgroundResource(R.drawable.bg_gray1_5dp_line)
+            if (binding.searchView.text.isNotEmpty()) {
+                binding.searchViewIcon.isVisible = true
+                binding.searchViewIcon.setImageResource(R.drawable.img)
+
+            } else {
+                binding.searchViewIcon.isVisible = false
+                //binding.searchViewIcon.setImageResource(R.drawable.ic_search_figma)
+
+            }
         }
+
+//        binding.searchView.doAfterTextChanged {
+//
+//        }
 
         binding.searchView.addTextChangedListener(object : TextWatcher {
 
@@ -59,10 +154,12 @@ class MainScreenActivity : AppCompatActivity() {
                 before: Int, count: Int
             ) {
                 if (s.toString().trim().isNotEmpty()) {
+                    binding.searchViewIcon.isVisible = true
                     binding.searchViewIcon.setImageResource(R.drawable.img)
 
                 } else {
-                    binding.searchViewIcon.setImageResource(R.drawable.ic_search_figma)
+                    binding.searchViewIcon.isVisible = false
+                    //binding.searchViewIcon.setImageResource(R.drawable.ic_search_figma)
 
                 }
             }
@@ -83,13 +180,11 @@ class MainScreenActivity : AppCompatActivity() {
             binding.spinnerView.show()
             binding.spinnerView.setBackgroundResource(R.drawable.spinner_main_background_opened)
             //binding.spinnerView.setPadding(12, 8, 0, 5)
-            binding.spinnerView.setPaddingRelative(12, 1, 5, 0)
         }
 
         binding.spinnerView.apply {
             setOnSpinnerItemSelectedListener<String> { _, _, _, item ->
                 binding.spinnerView.setBackgroundResource(R.drawable.spinner_main_background_closed)
-                binding.spinnerView.setPaddingRelative(12, 1, 5, 0)
             }
         }
 
