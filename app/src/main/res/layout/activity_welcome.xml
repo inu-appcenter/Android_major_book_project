@@ -22,6 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
         android:fontFamily="@font/pretendard_medium"
+        android:letterSpacing="-0.01"
         android:text="안녕하세요"
         android:textColor="@color/gray4"
         android:textSize="30sp"
@@ -43,6 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/pretendard_semi_bold"
+            android:letterSpacing="-0.01"
             android:text="김가온"
             android:textColor="@color/black"
             android:textSize="30sp" />
@@ -51,6 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/pretendard_medium"
+            android:letterSpacing="-0.01"
             android:text="님"
             android:textColor="@color/gray4"
             android:textSize="30sp" />

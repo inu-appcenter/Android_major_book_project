@@ -23,24 +23,26 @@
 
 
     <TextView
-        style="@style/signInText"
         android:id="@+id/text_name"
+        style="@style/signInText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/pretendard_medium"
         android:text="이름"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/topAppBar" />
 
     <EditText
-        style="@style/signInEditText"
         android:id="@+id/editText_inputName"
+        style="@style/signInEditText"
         android:layout_width="match_parent"
         android:layout_height="46dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/bg_gray3_5dp"
         android:ems="10"
+        android:fontFamily="@font/pretendard_light"
         android:hint="이름을 입력하세요"
         android:inputType="textPersonName"
         android:letterSpacing="-0.02"
@@ -48,8 +50,7 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_name"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/text_name" />
 
     <EditText
         style="@style/signInEditText"
@@ -93,13 +94,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/pretendard_medium"
         android:text="학과"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText_inputName" />
 
     <com.skydoves.powerspinner.PowerSpinnerView
-        style="@style/signInEditText"
         android:id="@+id/spinnerView"
+        style="@style/signInEditText"
         android:layout_width="0dp"
         android:layout_height="46dp"
         android:layout_marginStart="16dp"
@@ -108,6 +110,7 @@
         android:foreground="?attr/selectableItemBackground"
         android:gravity="center_vertical"
         android:hint="단과대"
+        android:lineSpacingExtra="-3sp"
         android:paddingStart="12dp"
         android:paddingEnd="15dp"
         android:textColorHint="@color/gray4"
@@ -128,24 +131,25 @@
         tools:ignore="HardcodedText,UnusedAttribute" />
 
     <com.skydoves.powerspinner.PowerSpinnerView
-        android:fontFamily="@font/pretendard_light"
         android:id="@+id/spinnerView2"
         android:layout_width="0dp"
-        app:layout_constraintHorizontal_weight="1"
         android:layout_height="46dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginStart="8dp"
         android:background="@drawable/line_gray2_5dp"
+        android:fontFamily="@font/pretendard_light"
         android:foreground="?attr/selectableItemBackground"
         android:gravity="center_vertical"
         android:hint="학과"
+        android:letterSpacing="-0.02"
         android:paddingStart="12dp"
         android:paddingEnd="15dp"
         android:textColor="@color/gray4"
         android:textColorHint="@color/gray2"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toEndOf="@+id/spinnerView"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:spinner_arrow_animate="true"
@@ -182,7 +186,6 @@
         app:layout_constraintTop_toBottomOf="@+id/editText_inputId" />
 
     <Button
-        style="@style/signInText"
         android:id="@+id/btn_authenticate"
         android:layout_width="137dp"
         android:layout_height="38dp"
@@ -191,6 +194,7 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/iris_80_5dp_bg"
         android:enabled="true"
+        android:fontFamily="@font/pretendard_medium"
         android:text="재학생 인증"
         android:textColor="@color/white"
         android:textSize="14sp"
@@ -219,10 +223,13 @@
         android:layout_marginBottom="40dp"
         android:background="@drawable/bg_gray3_5dp"
         android:backgroundTint="@color/gray3"
+        android:fontFamily="@font/pretendard_medium"
+        android:letterSpacing="-0.02"
         android:text="가입완료"
         android:textSize="14sp"
         android:fontFamily="@font/pretendard_medium"
         android:textColor="@color/white"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
