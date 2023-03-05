@@ -7,8 +7,8 @@
     tools:context=".CreateAccountActivity">
 
     <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/topAppBar"
         style="@style/Widget.App.ActionMode"
+        android:id="@+id/topAppBar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="17dp"
@@ -189,6 +189,7 @@
         android:id="@+id/btn_authenticate"
         android:layout_width="137dp"
         android:layout_height="38dp"
+        android:fontFamily="@font/pretendard_medium"
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/iris_80_5dp_bg"
@@ -225,6 +226,8 @@
         android:fontFamily="@font/pretendard_medium"
         android:letterSpacing="-0.02"
         android:text="가입완료"
+        android:textSize="14sp"
+        android:fontFamily="@font/pretendard_medium"
         android:textColor="@color/white"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
