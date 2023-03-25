@@ -156,7 +156,7 @@
         app:spinner_arrow_gravity="end"
         app:spinner_arrow_padding="0dp"
         app:spinner_arrow_tint="@color/gray2"
-        app:spinner_item_array="@array/spinner_account_screen_school"
+        app:spinner_item_array="@array/spinner_account_screen_school_major"
         app:spinner_item_height="46dp"
         app:spinner_popup_animation="normal"
         app:spinner_popup_background="@drawable/spinner_main_background_closed"
@@ -194,7 +194,6 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/iris_80_5dp_bg"
         android:enabled="true"
-        android:fontFamily="@font/pretendard_medium"
         android:text="재학생 인증"
         android:textColor="@color/white"
         android:textSize="14sp"
@@ -215,7 +214,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btn_authenticate" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnSignUp"
         android:layout_width="match_parent"
         android:layout_height="46dp"
         android:layout_marginStart="16dp"
@@ -227,9 +226,7 @@
         android:letterSpacing="-0.02"
         android:text="가입완료"
         android:textSize="14sp"
-        android:fontFamily="@font/pretendard_medium"
         android:textColor="@color/white"
-        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
