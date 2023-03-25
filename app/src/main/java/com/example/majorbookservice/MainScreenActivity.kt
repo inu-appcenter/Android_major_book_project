@@ -1,6 +1,7 @@
 package com.example.majorbookservice
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Rect
 import android.os.Bundle
@@ -15,6 +16,8 @@ import android.widget.EditText
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.content.ContextCompat.getSystemService
 import androidx.core.view.isVisible
 import androidx.core.widget.doAfterTextChanged
@@ -28,15 +31,18 @@ import com.example.majorbookservice.UI.adapter.Adapter
 import com.example.majorbookservice.UI.adapter.ToDoAdapter
 import com.example.majorbookservice.databinding.ActivityMainScreenBinding
 import com.example.majorbookservice.databinding.ItemBookBinding
+import com.metacoding.major_book.MyAdapter
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.io.Serializable
 
 
-class MainScreenActivity : AppCompatActivity() {
+class MainScreenActivity : AppCompatActivity(), ToDoAdapter.ItemClickListener {
     lateinit var binding: ActivityMainScreenBinding
+    //private lateinit var myAdapter: ToDoAdapter
     val mDatas = mutableListOf<MajorBooks>()
     private var nameText = ""
     private var professorText = ""
@@ -56,7 +62,50 @@ class MainScreenActivity : AppCompatActivity() {
         //2. retrofit 서비스 등록하기
         val retrofitService = retrofit.create(RetrofitService::class.java)
 
+
+
         val searchList = mutableListOf<SubjectDto>()
+
+        retrofitService.subjectInquiry(professorText,departmentText,nameText).enqueue(object : Callback<SubjectResponse> {
+
+            override fun onResponse(
+                call: Call<SubjectResponse>,
+                response: Response<SubjectResponse>
+            ) {
+                //성공한 경우
+                if (response.isSuccessful) {
+                    val searchResponse = response.body()!!
+                    Log.d("retrofit", searchResponse.toString())
+
+
+
+                    //val todoList = response.body()!!
+                    Log.d("retrofit", searchResponse.size.toString())
+
+                    searchResponse.forEach{
+                        //Log.d("retrofit",it.contents)
+                        searchList.add(it)
+                    }
+                }
+
+                if(searchList.size == 0){
+                    binding.noResults.isVisible = true
+                }else{
+                    binding.noResults.isVisible = false
+                }
+                searchList.forEach {
+                    //Log.d("retrofit",it.contents)
+                }
+
+                binding.recyclerView.layoutManager =
+                    LinearLayoutManager(this@MainScreenActivity, RecyclerView.VERTICAL, false)
+                binding.recyclerView.adapter = ToDoAdapter(ItemBookBinding.inflate(layoutInflater), searchList, this@MainScreenActivity)
+            }
+
+            override fun onFailure(call: Call<SubjectResponse>, t: Throwable) {
+
+            }
+        })
 
         binding.searchViewIcon.setOnClickListener {
             searchList.clear()
@@ -94,7 +143,7 @@ class MainScreenActivity : AppCompatActivity() {
 
                             searchResponse.forEach{
                                 //Log.d("retrofit",it.contents)
-                                searchList.add(SubjectDto(it.department,it.id,it.name,it.professor,it.subjectType))
+                                searchList.add(it)
                             }
                         }
 
@@ -109,7 +158,7 @@ class MainScreenActivity : AppCompatActivity() {
 
                         binding.recyclerView.layoutManager =
                             LinearLayoutManager(this@MainScreenActivity, RecyclerView.VERTICAL, false)
-                        binding.recyclerView.adapter = ToDoAdapter(ItemBookBinding.inflate(layoutInflater), searchList)
+                        binding.recyclerView.adapter = ToDoAdapter(ItemBookBinding.inflate(layoutInflater), searchList, this@MainScreenActivity)
                     }
 
                     override fun onFailure(call: Call<SubjectResponse>, t: Throwable) {
@@ -171,7 +220,7 @@ class MainScreenActivity : AppCompatActivity() {
          * 추후 삭제 예정
          *
          * */
-        initDogRecyclerView()
+        initRecyclerView()
         initializelist()
 
 
@@ -226,11 +275,11 @@ class MainScreenActivity : AppCompatActivity() {
     }
 
     /** 리사이클러뷰 화면 실행 */
-    fun initDogRecyclerView() {
-        val adapter = Adapter() //어댑터 객체 만듦
-        adapter.datalist = mDatas //데이터 넣어줌
-        binding.recyclerView.adapter = adapter //리사이클러뷰에 어댑터 연결
-        binding.recyclerView.layoutManager = LinearLayoutManager(this) //레이아웃 매니저 연결
+    fun initRecyclerView() {
+//        val adapter = Adapter() //어댑터 객체 만듦
+//        adapter.datalist = mDatas //데이터 넣어줌
+//        binding.recyclerView.adapter = adapter //리사이클러뷰에 어댑터 연결
+//        binding.recyclerView.layoutManager = LinearLayoutManager(this) //레이아웃 매니저 연결
     }
 
     fun initializelist() { //임의로 데이터 넣어서 만들어봄
@@ -265,5 +314,52 @@ class MainScreenActivity : AppCompatActivity() {
             }
         }
         return super.dispatchTouchEvent(event)
+    }
+
+    override fun onClick(id: Int) {   //클릭하면 id 값을 입력받는다.
+
+        Log.d("retrofit","책 검색중입니다...")
+        Log.d("retrofit",id.toString())
+
+        val intent = Intent(this, MajorBookActivity::class.java)
+        intent.putExtra("subject", id)
+
+        startActivity(intent)
+
+//        //1. retrofit 만들기
+//        val retrofit = Retrofit.Builder()
+//            .baseUrl("https://book-service.inuappcenter.kr/")
+//            .addConverterFactory(GsonConverterFactory.create())
+//            .build()
+//
+//        //2. retrofit 서비스 등록하기
+//        val retrofitService = retrofit.create(RetrofitService::class.java)
+//
+//        val searchList = mutableListOf<SubjectBookResponse>()
+//
+//        retrofitService.subjectBookInquiry(id, id).enqueue(object : Callback<SubjectBookResponse> {
+//
+//            override fun onResponse(
+//                call: Call<SubjectBookResponse>,
+//                response: Response<SubjectBookResponse>
+//            ) {
+//                //성공한 경우
+//                if (response.isSuccessful) {
+//
+//                    Log.d("retrofit","책 검색에 성공했습니다...")
+//
+//                    val searchResponse = response.body()!!
+//                    //Toast.makeText(applicationContext,"책 검색 성공~!", Toast.LENGTH_SHORT).show()
+//                    Log.d("retrofit", searchResponse.books)
+//
+//                }else{
+//                    Log.d("retrofit", "실패했습니다")
+//                }
+//            }
+//
+//            override fun onFailure(call: Call<SubjectBookResponse>, t: Throwable) {
+//
+//            }
+//        })
     }
 }
