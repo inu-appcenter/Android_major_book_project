@@ -12,12 +12,15 @@ class ToDoViewHolder(val binding: ItemBookBinding) : RecyclerView.ViewHolder(bin
 
 class ToDoAdapter(
     val binding: ItemBookBinding,
-    val todos: MutableList<SubjectDto>
+    val subject: MutableList<SubjectDto>,
+    private val itemClickListener: ItemClickListener? = null,
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     //항목 개수 판단
     override fun getItemCount(): Int {
-        return todos.size
+        Log.d("retrofit","아이템 수: " + subject.size.toString())
+
+        return subject.size
     }
 
     //항목의 뷰를 갖는 뷰홀더를 준비하는 함수
@@ -36,19 +39,19 @@ class ToDoAdapter(
         val binding = (holder as ToDoViewHolder).binding
 
         //뷰에 데이터 넣기
-        binding.lecture.text = todos[position].name
-        binding.professor.text = todos[position].professor
-        binding.major.text = todos[position].department
+        binding.lecture.text = subject[position].name
+        binding.professor.text = subject[position].professor
+        binding.major.text = subject[position].department
 
-        //뷰에 이벤트 추가하기
-        binding.itemRoot.setOnClickListener {
+        holder.itemView.setOnClickListener{
             Log.d("retrofit", "item root click: ${position}")
-            //ItemClickListener?.onClick(todos[position])
+            Log.d("retrofit", "subject id: ${subject[position].id}")
+            itemClickListener?.onClick(subject[position].id)
         }
     }
 
-//    //clickListener
-//    interface ItemClickListener {
-//        fun onClick(todo: ToDo)
-//    }
+    //    //clickListener
+    interface ItemClickListener {
+        fun onClick(id: Int)
+    }
 }
