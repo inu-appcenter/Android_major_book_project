@@ -14,7 +14,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MajorBookService"
         tools:targetApi="31">
-        <activity android:name=".test_searchView"/>
         <activity
             android:name=".WelcomeActivity"
             android:exported="false" />
@@ -26,7 +25,7 @@
             android:theme="@style/Theme.MajorBookService.NoActionBar" />
         <activity android:name=".MainActivity" />
         <activity android:name=".CreateAccountActivity" />
-        <activity android:name=".MajorBookActivity" />
+       <!-- <activity android:name=".MajorBookActivity" />-->
         <activity
             android:name=".ui.mainscreen.MainScreenActivity"
             android:exported="true">
