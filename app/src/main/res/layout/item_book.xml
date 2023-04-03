@@ -8,11 +8,41 @@
     android:background="@drawable/item_book_layout">
 
     <TextView
+        android:id="@+id/subjectName"
+        android:layout_width="wrap_content"
+        android:layout_height="16dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/pretendard_regular"
+        android:lineSpacingExtra="-2sp"
+        android:maxLines="1"
+        android:text="전공선택"
+        android:textColor="#686868"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/lecture"
+        app:layout_constraintTop_toBottomOf="@+id/lecture" />
+
+    <TextView
+        android:id="@+id/type"
+        android:layout_width="wrap_content"
+        android:layout_height="16dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/pretendard_regular"
+        android:lineSpacingExtra="-2sp"
+        android:maxLines="1"
+        android:text="디자인 학부"
+        android:textColor="#686868"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/subjectName"
+        app:layout_constraintTop_toBottomOf="@+id/lecture" />
+
+    <TextView
         android:id="@+id/lecture"
-        android:layout_width="200dp"
+        android:layout_width="wrap_content"
         android:layout_height="18dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="10dp"
+        android:fontFamily="@font/pretendard_medium"
         android:lineSpacingExtra="-3sp"
         android:maxLines="1"
         android:text="UIUX 디자인"
@@ -23,9 +53,10 @@
 
     <TextView
         android:id="@+id/professor"
-        android:layout_width="200dp"
+        android:layout_width="wrap_content"
         android:layout_height="16dp"
         android:layout_marginTop="4dp"
+        android:fontFamily="@font/pretendard_regular"
         android:lineSpacingExtra="-2sp"
         android:maxLines="1"
         android:text="이운형"
@@ -34,16 +65,4 @@
         app:layout_constraintStart_toStartOf="@+id/lecture"
         app:layout_constraintTop_toBottomOf="@+id/lecture" />
 
-    <TextView
-        android:id="@+id/major"
-        android:layout_width="200dp"
-        android:layout_height="16dp"
-        android:layout_marginTop="6dp"
-        android:lineSpacingExtra="-2sp"
-        android:maxLines="1"
-        android:text="전공선택 디자인 학부"
-        android:textColor="#686868"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="@+id/lecture"
-        app:layout_constraintTop_toBottomOf="@+id/professor" />
 </androidx.constraintlayout.widget.ConstraintLayout>

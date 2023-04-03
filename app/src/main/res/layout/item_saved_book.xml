@@ -4,28 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/itemRoot"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@drawable/line_gray3_5dp_topbottom">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/firstLayout"
         android:layout_width="match_parent"
         android:layout_height="84dp"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/bookNameTextView"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
+            android:layout_marginEnd="44dp"
             android:fontFamily="@font/pretendard_medium"
             android:includeFontPadding="false"
-            android:text="책제목"
+            android:maxLines="1"
+            android:text="가깝고도 먼 이야기, 색: 다채롭고 신비한 예술가깝고도 먼 이야기, 색: 다채롭고 신비한 예술가깝고도 먼 이야기, 색: 다채롭고 신비한 예술가깝고도 먼 이야기, 색: 다채롭고 신비한 예술가깝고도 먼 이야기, 색: 다채롭고 신비한 예술가깝고도 먼 이야기, 색: 다채롭고 신비한 예술가깝고도 먼 이야기, 색: 다채롭고 신비한 예술가깝고도 먼 이야기, 색: 다채롭고 신비한 예술가깝고도 먼 이야기, 색: 다채롭고 신비한 예술"
             android:textColor="@color/black"
             android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -55,26 +61,43 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/detailView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:visibility="gone"
-        android:layout_width="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_height="wrap_content">
+        app:layout_constraintTop_toTopOf="parent">
+
+        <View
+            android:id="@+id/line_10"
+            style="@style/Line"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/gray3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/infoUrlTextView2" />
 
         <TextView
             android:id="@+id/titleTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="39dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
+            android:layout_marginEnd="9dp"
+            android:layout_marginBottom="16dp"
             android:fontFamily="@font/pretendard_medium"
             android:includeFontPadding="false"
+            android:maxLines="2"
             android:textColor="@color/black"
             android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/bookCoverImageView"
+            app:layout_constraintEnd_toStartOf="@+id/bookMark"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="가깝고도 먼 이야기, 색: 다채롭고 신비한 예술" />
+            app:layout_constraintVertical_bias="0.0"
+            tools:text="가깝고도 먼 이야기, 색: 다채롭고 신비한 예술가깝고도 먼 이야기, 색: 다채롭고 신비한 예술가깝고도 먼 이야기, 색: 다채롭고 신비한 예술가깝고도 먼 이야기, 색: 다채롭고 신비한 예술가깝고도 먼 이야기, 색: 다채롭고 신비한 예술가깝고도 먼 이야기, 색: 다채롭고 신비한 예술" />
 
         <ImageView
             android:id="@+id/bookCoverImageView"
@@ -90,7 +113,7 @@
             android:id="@+id/bookMark"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginTop="19dp"
+            android:layout_marginTop="31dp"
             android:layout_marginEnd="21dp"
             android:src="@drawable/clicked_bookmark"
             app:layout_constraintEnd_toEndOf="parent"
@@ -107,12 +130,13 @@
 
 
         <TextView
+            android:id="@+id/textView9"
             style="@style/Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="저자"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/line_1"
-            android:text="저자" />
+            app:layout_constraintTop_toBottomOf="@id/line_1" />
 
         <TextView
             android:id="@+id/authorNameTextView"
@@ -137,9 +161,10 @@
             style="@style/Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="출판사"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/line_2"
-            android:text="출판사" />
+            app:layout_constraintTop_toBottomOf="@id/line_2" />
 
         <TextView
             android:id="@+id/publisherNameTextView"
@@ -163,9 +188,9 @@
             style="@style/Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="출판년도"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/line_3"
-            android:text="출판 연도" />
+            app:layout_constraintTop_toBottomOf="@id/line_3" />
 
         <TextView
             android:id="@+id/yearOfPublicationTextView"
@@ -189,9 +214,9 @@
             style="@style/Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="자료유형"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/line_4"
-            android:text="자료 유형" />
+            app:layout_constraintTop_toBottomOf="@id/line_4" />
 
         <TextView
             android:id="@+id/typeTextView"
@@ -215,9 +240,9 @@
             style="@style/Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="청구기호"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/line_5"
-            android:text="소장 정보" />
+            app:layout_constraintTop_toBottomOf="@id/line_5" />
 
         <TextView
             android:id="@+id/infoUrlTextView"
@@ -226,22 +251,89 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/line_5"
-            tools:text="국내서 단행본" />
+            tools:text="651 한94 ㄱ" />
 
         <View
             android:id="@+id/line_6"
             style="@style/Line"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="20dp"
             android:background="@color/gray3"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/infoUrlTextView" />
 
+        <TextView
+            android:id="@+id/textView4"
+            style="@style/Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="소장위치"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/line_6" />
+
+        <TextView
+            android:id="@+id/infoUrlTextView2"
+            style="@style/Value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/line_6"
+            tools:text="제2자료실(층), INU교수의 서재" />
+
+        <TextView
+            android:id="@+id/textView10"
+            style="@style/Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="대출가능"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/line_10" />
+
+        <TextView
+            android:id="@+id/infoUrlTextView4"
+            style="@style/Value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/line_10"
+            tools:text="4/5" />
+
+        <View
+            android:id="@+id/line_11"
+            style="@style/Line"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/gray3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/infoUrlTextView4" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/pretendard_medium"
+            android:text="학산도서관 바로가기"
+            android:textColor="@color/gray4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/line_11" />
+
+        <View
+            android:id="@+id/line_12"
+            style="@style/Line"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/gray3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
