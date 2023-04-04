@@ -7,8 +7,6 @@ data class Book(
     var author: String,
     @SerializedName("id")
     var id: Int,
-    @SerializedName("isSaved")
-    var isSaved: Boolean,
     @SerializedName("publisher")
     var publisher: String,
     @SerializedName("title")
