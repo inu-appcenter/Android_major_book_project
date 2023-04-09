@@ -14,18 +14,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MajorBookService"
         tools:targetApi="31">
-        <activity
-            android:name=".WelcomeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".RecyclerViewActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SplashActivity"
+        <activity android:name=".WelcomeActivity"/>
+        <activity android:name=".ui.savedbook.RecyclerViewActivity"/>
+        <activity android:name=".SplashActivity"
             android:theme="@style/Theme.MajorBookService.NoActionBar" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".CreateAccountActivity" />
-       <!-- <activity android:name=".MajorBookActivity" />-->
+       <!-- <activity android:name=".CreateAccountActivity" />-->
+        <activity android:name=".ui.mainscreen.MajorBookActivity"/>
         <activity
             android:name=".ui.mainscreen.MainScreenActivity"
             android:exported="true">
