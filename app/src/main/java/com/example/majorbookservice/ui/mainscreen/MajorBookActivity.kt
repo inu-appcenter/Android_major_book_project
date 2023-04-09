@@ -26,18 +26,20 @@ class MajorBookActivity : AppCompatActivity() {
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_major_book)
 
-//        //툴바 타이틀 정해주기
-//        setSupportActionBar(binding.topAppBar)
-//        supportActionBar?.setDisplayShowTitleEnabled(false)
-//        binding.toolbar.title = "융합디자인론/한혜진"
-
-        // val toolbar = findViewById(R.id.topAppBar) as androidx.appcompat.widget.Toolbar
-        //setSupportActionBar(toolbar)    //toolbar를 갖고와 activity의 앱바로 설정
-//        toolbar?.navigationIcon = ContextCompat.getDrawable(this,R.drawable.baseline_arrow_back_ios_new_24) //style이 지정된 drawable을 얻는 법
+        val clickedId = intent.getIntExtra("clicked_id", 0)
+        val professorName = intent.getStringExtra("professorName")
+        val department = intent.getStringExtra("departmentName")
+        val subjectType = intent.getStringExtra("subjectType")
+        val subjectName = intent.getStringExtra("subjectName")
 
         /** toolbar binding 작업 */
         val toolbar = binding.topAppBar
         setSupportActionBar(toolbar)
+        binding.topAppBar.title = "$subjectName/$professorName"
+        binding.department.text = department
+        binding.subjectType.text = subjectType
+        binding.subject.text = subjectName
+        binding.professorName.text = professorName
 
         /** toolbar 뒤로가기 버튼 이벤트 구현 */
         toolbar?.setNavigationOnClickListener {
@@ -45,12 +47,9 @@ class MajorBookActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-
-        val clickedId = intent.getIntExtra("clicked_id", 0)
         Log.d("clicked_item", clickedId.toString())
 
-
-        /** 샘플 데이터 입력 완료 */
+        /** adapter와 recyclerView 연결 */
         val adapter= MajorBookAdapter()
         val viewModel = MajorBookModel()
 
@@ -62,27 +61,5 @@ class MajorBookActivity : AppCompatActivity() {
             adapter.setBook(it.peekContent())
             adapter.notifyDataSetChanged()
         })
-
-
-
-/*//    //액션버튼 메뉴 액션바에 집어 넣기
-//    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-//        menuInflater.inflate(R.menu.toolbar_menu, menu)
-//        return true
-//    }
-//
-//    //액션버튼 클릭 했을 때
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        if (item?.itemId == R.id.topAppBar) {
-//            //Toast.makeText(applicationContext, "이전 화면으로 이동합니다.", Toast.LENGTH_LONG).show()
-//
-//            finish()
-//            return super.onOptionsItemSelected(item)
-//        }else{
-//            return super.onOptionsItemSelected(item)
-//        }
-//    }*/
-
     }
-
 }
