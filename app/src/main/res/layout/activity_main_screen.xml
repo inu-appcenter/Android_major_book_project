@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainScreenActivity">
+        tools:context=".ui.mainscreen.MainScreenActivity">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layout1"
@@ -20,10 +21,30 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
+            <EditText
+                android:id="@+id/searchView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bg_gray1_5dp"
+                android:focusableInTouchMode="true"
+                android:fontFamily="@font/pretendard_regular"
+                android:hint="검색어를 입력하세요"
+                android:inputType="text"
+                android:paddingStart="25dp"
+                android:paddingEnd="22dp"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@id/spinnerView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/spinnerView"
+                app:layout_constraintTop_toTopOf="@id/spinnerView" />
+
             <com.skydoves.powerspinner.PowerSpinnerView
                 android:id="@+id/spinnerView"
-                android:layout_width="88dp"
+                android:layout_width="0dp"
                 android:layout_height="36dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/spinner_main_background_closed"
                 android:fontFamily="@font/pretendard_regular"
@@ -32,12 +53,12 @@
                 android:hint="교수명"
                 android:paddingStart="12dp"
                 android:paddingTop="2dp"
+
                 android:paddingEnd="5dp"
                 android:textColor="@color/gray4"
                 android:textColorHint="@color/black"
                 android:textSize="14sp"
-
-                app:layout_constraintStart_toStartOf="@+id/constraintLayout"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
                 app:spinner_arrow_animate="true"
                 app:spinner_arrow_gravity="end"
@@ -51,43 +72,48 @@
                 tools:ignore="HardcodedText,UnusedAttribute" />
 
 
-            <EditText
-                android:id="@+id/searchView"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="16dp"
-                android:background="@drawable/bg_gray1_5dp"
-                android:focusableInTouchMode="true"
-                android:fontFamily="@font/pretendard_regular"
-                android:hint="검색어를 입력하세요"
-                android:letterSpacing="-0.02"
-                android:paddingStart="16dp"
-                android:paddingEnd="11dp"
-                android:textSize="14sp"
-                app:layout_constraintBottom_toBottomOf="@id/spinnerView"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/spinnerView"
-                app:layout_constraintTop_toTopOf="@id/spinnerView" />
-
             <ImageView
                 android:id="@+id/searchViewIcon"
                 android:layout_width="14dp"
                 android:layout_height="14dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginStart="5dp"
                 android:src="@drawable/ic_search_figma"
-                app:layout_constraintBottom_toBottomOf="@id/searchView"
+                app:layout_constraintBottom_toBottomOf="@+id/searchView"
+                app:layout_constraintStart_toStartOf="@+id/searchView"
+                app:layout_constraintTop_toTopOf="@+id/searchView" />
+
+            <ImageView
+                android:id="@+id/eraseIcon"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/img"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="@+id/searchView"
                 app:layout_constraintEnd_toEndOf="@+id/searchView"
-                app:layout_constraintTop_toTopOf="@id/searchView" />
+                app:layout_constraintTop_toTopOf="@+id/searchView" />
 
             <TextView
                 android:id="@+id/no_results"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="364dp"
                 android:fontFamily="@font/pretendard_regular"
                 android:text="검색결과가 없습니다"
                 android:textSize="14sp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/no_results2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="364dp"
+                android:fontFamily="@font/pretendard_regular"
+                android:text="검색결과가 없습니다"
+                android:textSize="14sp"
                 android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

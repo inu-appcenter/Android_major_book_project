@@ -2,36 +2,58 @@ package com.example.majorbookservice.Data.DTO
 
 import com.google.gson.annotations.SerializedName
 
-data class BookDto(
+data class Book(
     @SerializedName("author")
-    val author: String,
+    var author: String,
     @SerializedName("id")
-    val id: Int,
-    @SerializedName("isSaved")
-    val isSaved: Boolean,
+    var id: Int,
     @SerializedName("publisher")
-    val publisher: String,
+    var publisher: String,
     @SerializedName("title")
-    val title: String,
+    var title: String,
     @SerializedName("type")
-    val type: String,
+    var type: String,
     @SerializedName("year")
-    val year: Int
+    var year: Int
 )
 
-data class SubjectDto(
-    @SerializedName("department")
-    val department: String,
+data class Subject(
+    @SerializedName("departmentName")
+    var department: String,
     @SerializedName("id")
-    val id: Int,
-    @SerializedName("name")
-    val name: String,
-    @SerializedName("professor")
-    val professor: String,
+    var id: Int,
+    @SerializedName("professorName")
+    var professorName: String,
+    @SerializedName("subjectName")
+    var subjectName: String,
     @SerializedName("subjectType")
-    val subjectType: String
+    var subjectType: String
 )
 
+data class Filter(
+    var professorName: String,
+    var departmentName: String,
+    var subjectName: String
+)
+
+data class SubjectResponse(
+    @SerializedName("books")
+    var books: ArrayList<Book>,
+    @SerializedName("departmentName")
+    var department: String,
+    @SerializedName("id")
+    var id: Int,
+    @SerializedName("professorName")
+    var professorName: String,
+    @SerializedName("subjectName")
+    var subjectName: String,
+    @SerializedName("subjectType")
+    var subjectType: String
+)
+
+
+
+/*
 data class SignInRequestDto(
     @SerializedName("email")
     var email: String,
@@ -66,4 +88,5 @@ data class SignUpResponseDto(
     var msg: String,
     @SerializedName("success")
     var success: Boolean
-)
+)*/
+

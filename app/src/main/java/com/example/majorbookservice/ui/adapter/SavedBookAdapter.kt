@@ -9,12 +9,13 @@ import com.example.majorbookservice.Data.DTO.Book
 import com.example.majorbookservice.databinding.ItemSavedBookBinding
 
 //뷰 객체를 가지는 뷰 홀더
-class MyAdapter(
+class SavedBookAdapter(
     val list: MutableList<Book>,
-    private val itemClickListener: MyAdapter.ItemClickListener? = null,
-) : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
+    private val itemClickListener: SavedBookAdapter.ItemClickListener? = null,
+) : RecyclerView.Adapter<SavedBookAdapter.MyViewHolder>() {
     //뷰홀더를 생성하는 함수
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
+
         //뷰를 그리기
         val inflater =
             parent.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -58,8 +59,7 @@ class MyAdapter(
                 publisherNameTextView.text = book.publisher
                 yearOfPublicationTextView.text = book.year.toString()
                 typeTextView.text = book.type
-                infoUrlTextView.text = book.info
-
+                //infoUrlTextView.text = book.info
 
             }
         }

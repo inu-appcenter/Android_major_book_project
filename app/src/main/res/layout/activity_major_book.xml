@@ -6,7 +6,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MajorBookActivity">
+    tools:context=".ui.mainscreen.MajorBookActivity">
 
 
     <com.google.android.material.appbar.MaterialToolbar
@@ -26,18 +26,19 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="257dp"
         android:layout_marginEnd="16dp"
-        android:background="@drawable/line_gray4_5dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/line_gray3_5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:itemCount="1"
-        tools:listitem="@layout/item_major_book" />
+        tools:listitem="@layout/item_saved_book" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
@@ -52,7 +53,24 @@
         app:layout_constraintTop_toBottomOf="@id/topAppBar">
 
         <TextView
-            android:id="@+id/name"
+            android:id="@+id/department"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="18dp"
+            android:fontFamily="@font/pretendard_regular"
+            android:letterSpacing="-0.03"
+            android:text="디자인학부"
+            android:textColor="@color/gray4"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/subjectType"
+            app:layout_constraintTop_toBottomOf="@id/subject"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/professorName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -77,10 +95,10 @@
             android:textColor="@color/black"
             android:textSize="16dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/name" />
+            app:layout_constraintTop_toBottomOf="@id/professorName" />
 
         <TextView
-            android:id="@+id/major"
+            android:id="@+id/subjectType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -88,7 +106,7 @@
             android:layout_marginBottom="18dp"
             android:fontFamily="@font/pretendard_regular"
             android:letterSpacing="-0.03"
-            android:text="전공선택 디자인학부"
+            android:text="전공선택"
             android:textColor="@color/gray4"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
